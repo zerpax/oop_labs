@@ -1,4 +1,7 @@
-#incude "sad.h"
+#include <iostream>
+#include "../lib/sad.h"
+
+using namespace std;
 
 bool sad(string day, int num){
     if(day == "monday" && num == 12) return true;

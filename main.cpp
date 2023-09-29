@@ -1,10 +1,10 @@
 #include <iostream>
-#include "sad.h"
+#include "lib/sad.h"
 
 using namespace std;
 
 int main(){
-    string day
+    string day;
     int num;
     cin >> day >> num;
     cout << sad(day, num);

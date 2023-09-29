@@ -1,3 +1,3 @@
-#pragma once 
+#include <string>
 
-int sad(string ,int);
+bool sad(std::string ,int );

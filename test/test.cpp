@@ -1,19 +1,19 @@
 #include <gtest/gtest.h>
-#include "sad.h"
+#include "../lib/sad.h"
 
-TEST(test_01, basic_test_set)
+TEST(basic_test_set, test_1)
 {
-    ASSERT_TRUE(sad(monday,1)==false);
+    ASSERT_TRUE(sad("monday",1)==false);
 }
 
-TEST(test_02, basic_test_set)
+TEST(basic_test_set, test_2)
 {
-    ASSERT_TRUE(sad(monday,12)==true);
+    ASSERT_TRUE(sad("monday",12)==true);
 }
 
-TEST(test_03, basic_test_set)
+TEST(basic_test_set, test_3)
 {
-    ASSERT_TRUE(sad(tuesday,222)==true);
+    ASSERT_TRUE(sad("tuesday",222)==true);
 }
 
 int main(int argc, char **argv) {
