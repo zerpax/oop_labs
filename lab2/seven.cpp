@@ -39,10 +39,10 @@ Seven::Seven(const Seven& other) {
     
 Seven::Seven(Seven&& other) noexcept {
     size = other.size;
-    value = new unsigned char[size];
-    for (int i = 0; i < size; i++) {
-        value[i] = other.value[i];
-    }
+    value = other.value;
+
+    other.size = 0;
+    other.value = unullptr;
 }
 
 Seven::~Seven() {
