@@ -132,13 +132,13 @@ Seven Seven::Minus(const Seven& b) {
 
 Seven Seven::Copy(Seven& b) {
     size = b.size;
+    delete[] value;
     value = new unsigned char[size];
+
     for (int i = 0; i < size; i++) {
         value[i] = b.value[i];
     }
-    b.size = 0;
-    delete[] b.value;
-    b.value = nullptr;
+    
     return *this;
 }
 
