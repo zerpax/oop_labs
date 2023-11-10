@@ -29,7 +29,7 @@ public:
     Seven Minus(const Seven& );
     bool Equals(const Seven&);
 
-    Seven Copy(const Seven& );
+    Seven Copy(Seven& );
     bool Greater(const Seven& );
 
     bool Less(const Seven& );

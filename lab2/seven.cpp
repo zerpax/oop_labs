@@ -11,7 +11,7 @@ Seven::Seven(const size_t & n, const unsigned char t = 48){
     fill(value, value + n, t);
 }
 
-Seven::Seven(const initializer_list< unsigned char>&t) {
+Seven::Seven(const initializer_list<unsigned char>&t) {
     size = t.size();
     value = new unsigned char[size];
     int i = 0;
@@ -42,21 +42,19 @@ Seven::Seven(Seven&& other) noexcept {
     value = other.value;
 
     other.size = 0;
-    other.value = unullptr;
+    other.value = nullptr;
 }
 
 Seven::~Seven() {
-    delete value;
+    delete[] value;
     value = nullptr;
 }
 
 
 unsigned char* Seven::Value() {
     unsigned char* value = new unsigned char[this->size];
-    for (int i = 0; i < size / 2; i++) {
-        unsigned char temp = value[i];
-        value[i] = value[size - i - 1];
-        value[size - i - 1] = temp;
+    for (int i = 0; i < size; i++) {
+        value[i] = this->value[size - i - 1];
     }
     return value;
 }
@@ -64,6 +62,8 @@ unsigned char* Seven::Value() {
 int Seven::Size() {
     return size;
 }
+
+
 
 void Seven::Print() {
     for (int i = size-1; i >= 0; i--) {
@@ -120,7 +120,6 @@ Seven Seven::Minus(const Seven& b) {
         }
     }
     for (int i = res.size-1; i >= 0; i--) {
-        //cout << int(res.value[i]) << int('0') << ' ';
         if (res.value[i] == 48) {
             res.size--;
         }
@@ -131,12 +130,15 @@ Seven Seven::Minus(const Seven& b) {
     return res;
 }
 
-Seven Seven::Copy(const Seven& b) {
+Seven Seven::Copy(Seven& b) {
     size = b.size;
     value = new unsigned char[size];
     for (int i = 0; i < size; i++) {
         value[i] = b.value[i];
     }
+    b.size = 0;
+    delete[] b.value;
+    b.value = nullptr;
     return *this;
 }
 
